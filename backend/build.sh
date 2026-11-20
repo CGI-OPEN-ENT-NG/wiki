@@ -88,6 +88,16 @@ publish() {
 
 }
 
+publishNexus() {
+  version=`docker compose run --rm maven mvn $MVN_OPTS help:evaluate -Dexpression=project.version -q -DforceStdout`
+  case "$version" in
+    *SNAPSHOT) export nexusRepository='snapshots' ;;
+    *)         export nexusRepository='releases' ;;
+  esac
+
+  docker compose run --rm  maven mvn $MVN_OPTS -DaltDeploymentRepository=cgi-maven-$nexusRepository::default::https://nexus-pic2.support-ent.fr/repository/cgi-maven-$nexusRepository/ -DskipTests -Dmaven.test.skip=true --settings /var/maven/.m2/settings.xml deploy
+}
+
 for param in "$@"
 do
   case $param in
@@ -108,6 +118,9 @@ do
       ;;
     publish)
       publish
+      ;;
+    publishNexus)
+      publishNexus
       ;;
     *)
       echo "Invalid argument : $param"
