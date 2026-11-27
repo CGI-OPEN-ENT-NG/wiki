@@ -57,10 +57,10 @@
   "devDependencies": {
     "@axe-core/react": "4.11.1",
     "@babel/plugin-transform-react-pure-annotations": "7.23.3",
-    "@edifice.io/bootstrap": "npm:@cgi-learning-hub/edifice-bootstrap@2.6.14-campus.0",
+    "@edifice.io/bootstrap": "npm:@cgi-learning-hub/edifice-bootstrap@2.6.14-campus.1",
     "@edifice.io/cli": "develop",
     "@edifice.io/client": "develop",
-    "@edifice.io/react": "npm:@cgi-learning-hub/edifice-react@2.6.14-campus.0",
+    "@edifice.io/react": "npm:@cgi-learning-hub/edifice-react@2.6.14-campus.1",
     "@eslint/js": "9.39.2",
     "@tanstack/react-query": "5.62.7",
     "@tanstack/react-query-devtools": "5.91.3",
